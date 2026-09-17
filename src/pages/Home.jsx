@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import FloatingHearts from '../components/FloatingHearts';
+import Timeline from '../components/Timeline';
+import ReasonGenerator from '../components/ReasonGenerator';
+import LoveMeter from '../components/LoveMeter';
 import { useAuth } from '../context/AuthContext';
 import { getElapsed, HER_NAME } from '../utils/relationship';
 
@@ -129,6 +132,12 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <Timeline />
+
+      <ReasonGenerator />
+
+      <LoveMeter />
 
       <section className="relative z-10 mx-auto max-w-2xl px-6 pb-10 text-center">
         <motion.div

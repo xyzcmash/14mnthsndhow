@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import NavBar from '../components/NavBar';
 import FloatingHearts from '../components/FloatingHearts';
+import WallMessage from '../components/WallMessage';
 import { db } from '../firebase/firebase';
 
 export default function Wall() {
@@ -45,26 +45,12 @@ export default function Wall() {
           )}
 
           {messages.map((m, i) => (
-            <motion.div
+            <WallMessage
               key={m.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: Math.min(i * 0.05, 0.4) }}
-              className="rounded-2xl border border-white/5 bg-neutral-950/60 p-5"
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-quicksand text-sm font-semibold text-rose-400">{m.name}</span>
-                <span className="font-quicksand text-xs text-neutral-600">
-                  {m.createdAt?.toDate ? formatDate(m.createdAt.toDate()) : 'just now'}
-                </span>
-              </div>
-              {m.text && (
-                <p className="mt-2 font-quicksand text-sm leading-relaxed text-neutral-300">{m.text}</p>
-              )}
-              {m.audioUrl && (
-                <audio src={m.audioUrl} controls className="mt-3 h-9 w-full" />
-              )}
-            </motion.div>
+              message={m}
+              delay={Math.min(i * 0.05, 0.4)}
+              formatDate={formatDate}
+            />
           ))}
         </div>
       </div>
