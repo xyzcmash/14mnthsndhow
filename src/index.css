@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-quicksand: 'Quicksand', system-ui, sans-serif;
+  --font-dancing: 'Dancing Script', cursive;
+  --font-caveat: 'Caveat', cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: #000;
+}
+
+body {
+  font-family: var(--font-quicksand);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #e11d48;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #7f1d3a;
+  border-radius: 8px;
+}
