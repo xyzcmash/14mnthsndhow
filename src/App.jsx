@@ -10,6 +10,7 @@ import Poems from './pages/Poems';
 import ProtectedRoute from './components/ProtectedRoute';
 import CursorTrail from './components/CursorTrail';
 import HeartsTracker from './components/HeartsTracker';
+import SurpriseEnvelope from './components/SurpriseEnvelope';
 
 function App() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function App() {
     <>
       <CursorTrail />
       <HeartsTracker />
+      <SurpriseEnvelope />
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={location.pathname}

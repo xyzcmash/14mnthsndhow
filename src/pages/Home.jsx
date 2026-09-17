@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import NavBar from '../components/NavBar';
 import FloatingHearts from '../components/FloatingHearts';
 import HiddenHeart from '../components/HiddenHeart';
@@ -8,6 +9,7 @@ import Timeline from '../components/Timeline';
 import ReasonGenerator from '../components/ReasonGenerator';
 import LoveMeter from '../components/LoveMeter';
 import SpinReel from '../components/SpinReel';
+import TiltCard from '../components/TiltCard';
 import { useAuth } from '../context/AuthContext';
 import { getElapsed, HER_NAME } from '../utils/relationship';
 
@@ -51,6 +53,19 @@ export default function Home() {
 
   const firstName = (user?.displayName || HER_NAME).split(' ')[0];
 
+  const triggerGrandCelebration = () => {
+    if (sessionStorage.getItem('ashu-home-celebrated')) return;
+    sessionStorage.setItem('ashu-home-celebrated', 'true');
+
+    const duration = 1500;
+    const end = Date.now() + duration;
+    (function frame() {
+      confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0 }, colors: ['#e11d48', '#fbbf24', '#ffffff'] });
+      confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1 }, colors: ['#e11d48', '#fbbf24', '#ffffff'] });
+      if (Date.now() < end) requestAnimationFrame(frame);
+    })();
+  };
+
   return (
     <div className="relative min-h-screen bg-black text-white">
       <FloatingHearts count={14} />
@@ -70,7 +85,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="mt-4 font-dancing text-5xl text-white sm:text-6xl"
+          className="shimmer-heading mt-4 font-dancing text-5xl sm:text-6xl"
         >
           14 months of you and me
         </motion.h1>
@@ -87,7 +102,7 @@ export default function Home() {
             { label: 'hours', value: elapsed.hours },
             { label: 'minutes', value: elapsed.minutes },
           ].map((item) => (
-            <div
+            <TiltCard
               key={item.label}
               className="rounded-2xl border border-rose-500/20 bg-neutral-950/70 px-3 py-4 shadow-[0_0_25px_rgba(225,29,72,0.12)] sm:px-6"
             >
@@ -97,7 +112,7 @@ export default function Home() {
               <div className="mt-1 font-quicksand text-[10px] uppercase tracking-widest text-neutral-500 sm:text-xs">
                 {item.label}
               </div>
-            </div>
+            </TiltCard>
           ))}
         </motion.div>
 
@@ -166,7 +181,11 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <div className="relative z-10 flex justify-center pb-20">
+      <motion.div
+        className="relative z-10 flex justify-center pb-20"
+        onViewportEnter={triggerGrandCelebration}
+        viewport={{ once: true, amount: 0.6 }}
+      >
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -175,7 +194,7 @@ export default function Home() {
         >
           tell me something, ashu 🎙️
         </motion.button>
-      </div>
+      </motion.div>
     </div>
   );
 }

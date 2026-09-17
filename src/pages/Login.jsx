@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import FloatingHearts from '../components/FloatingHearts';
 import HiddenHeart from '../components/HiddenHeart';
+import CurtainReveal from '../components/CurtainReveal';
 
 export default function Login() {
   const [mode, setMode] = useState('login');
@@ -47,6 +48,7 @@ export default function Login() {
   };
 
   return (
+    <CurtainReveal>
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 py-16">
       <FloatingHearts count={10} />
       <HiddenHeart id="login" className="absolute bottom-4 left-4" />
@@ -139,6 +141,7 @@ export default function Login() {
         </p>
       </motion.div>
     </div>
+    </CurtainReveal>
   );
 }
 

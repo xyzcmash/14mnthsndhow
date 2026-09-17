@@ -39,3 +39,21 @@ body {
   background: #7f1d3a;
   border-radius: 8px;
 }
+
+@keyframes shimmer-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.shimmer-heading {
+  background: linear-gradient(90deg, #ffffff 0%, #fecdd3 25%, #fbbf24 50%, #fecdd3 75%, #ffffff 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-text 6s linear infinite;
+}
