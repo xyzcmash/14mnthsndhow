@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import FloatingHearts from '../components/FloatingHearts';
+import HiddenHeart from '../components/HiddenHeart';
 
 export default function Login() {
   const [mode, setMode] = useState('login');
@@ -48,6 +49,7 @@ export default function Login() {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 py-16">
       <FloatingHearts count={10} />
+      <HiddenHeart id="login" className="absolute bottom-4 left-4" />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -143,8 +145,8 @@ export default function Login() {
 function prettyError(err) {
   const code = err?.code || '';
   if (code.includes('wrong-password') || code.includes('invalid-credential')) return "that's not it, try again love";
-  if (code.includes('user-not-found')) return "don't see you here yet — register first?";
-  if (code.includes('email-already-in-use')) return 'this email already has a spot — just login';
+  if (code.includes('user-not-found')) return "don't see you here yet, register first?";
+  if (code.includes('email-already-in-use')) return 'this email already has a spot, just login';
   if (code.includes('popup-closed')) return 'closed the popup too soon, try again';
   return 'something went sideways, try again in a sec';
 }

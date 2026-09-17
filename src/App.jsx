@@ -5,8 +5,11 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Record from './pages/Record';
 import Wall from './pages/Wall';
+import Coupons from './pages/Coupons';
+import Poems from './pages/Poems';
 import ProtectedRoute from './components/ProtectedRoute';
 import CursorTrail from './components/CursorTrail';
+import HeartsTracker from './components/HeartsTracker';
 
 function App() {
   const location = useLocation();
@@ -14,6 +17,7 @@ function App() {
   return (
     <>
       <CursorTrail />
+      <HeartsTracker />
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={location.pathname}
@@ -46,6 +50,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Wall />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/coupons"
+              element={
+                <ProtectedRoute>
+                  <Coupons />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/poems"
+              element={
+                <ProtectedRoute>
+                  <Poems />
                 </ProtectedRoute>
               }
             />

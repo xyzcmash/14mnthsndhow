@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import NavBar from '../components/NavBar';
 import FloatingHearts from '../components/FloatingHearts';
+import HiddenHeart from '../components/HiddenHeart';
 import { useAuth } from '../context/AuthContext';
 import { db } from '../firebase/firebase';
 import { uploadAudio } from '../utils/cloudinary';
@@ -45,7 +46,7 @@ export default function Record() {
       setSeconds(0);
       timerRef.current = setInterval(() => setSeconds((s) => s + 1), 1000);
     } catch {
-      setError("couldn't get mic access — check your browser permissions and try again");
+      setError("couldn't get mic access, check your browser permissions and try again");
     }
   };
 
@@ -101,7 +102,7 @@ export default function Record() {
       }, 3000);
     } catch (err) {
       console.error(err);
-      setError('sending failed — check your connection and try again');
+      setError('sending failed, check your connection and try again');
       setStatus('idle');
     }
   };
@@ -112,6 +113,7 @@ export default function Record() {
   return (
     <div className="relative min-h-screen bg-black text-white">
       <FloatingHearts count={10} />
+      <HiddenHeart id="record" className="absolute bottom-6 right-4" />
       <NavBar />
 
       <div className="relative z-10 mx-auto flex max-w-lg flex-col items-center px-6 py-16 text-center">

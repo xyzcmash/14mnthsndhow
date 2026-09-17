@@ -3,6 +3,7 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import NavBar from '../components/NavBar';
 import FloatingHearts from '../components/FloatingHearts';
 import WallMessage from '../components/WallMessage';
+import HiddenHeart from '../components/HiddenHeart';
 import { db } from '../firebase/firebase';
 
 export default function Wall() {
@@ -25,6 +26,7 @@ export default function Wall() {
   return (
     <div className="relative min-h-screen bg-black text-white">
       <FloatingHearts count={8} />
+      <HiddenHeart id="wall" className="absolute bottom-6 left-4" />
       <NavBar />
 
       <div className="relative z-10 mx-auto max-w-2xl px-6 py-16">
@@ -40,7 +42,7 @@ export default function Wall() {
 
           {!loading && messages.length === 0 && (
             <p className="text-center font-quicksand text-neutral-600">
-              nothing here yet — go send the first one 🖤
+              nothing here yet, go send the first one 🖤
             </p>
           )}
 

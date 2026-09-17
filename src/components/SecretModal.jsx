@@ -22,7 +22,7 @@ export default function SecretModal({ open, onClose }) {
             <p className="font-quicksand text-xs uppercase tracking-[0.3em] text-rose-400/80">
               you found the secret spot
             </p>
-            <p className="mt-4 font-dancing text-3xl text-white">okay, since you're here —</p>
+            <p className="mt-4 font-dancing text-3xl text-white">okay, since you're here</p>
             <p className="mt-4 font-quicksand text-sm leading-relaxed text-neutral-300">
               i wasn't going to say this part out loud, but you clicked five times so you clearly
               earned it: you are, without any competition, my favorite person i've ever gotten to

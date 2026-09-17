@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { TIMELINE } from '../data/timeline';
+import HiddenHeart from './HiddenHeart';
 
 export default function Timeline() {
   return (
     <section className="relative z-10 mx-auto max-w-3xl px-6 pb-24">
       <h2 className="mb-14 text-center font-caveat text-4xl text-rose-400">our little timeline</h2>
+      <HiddenHeart id="timeline" className="absolute right-2 top-2" />
 
       <div className="relative">
         <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-rose-500/40 via-rose-500/10 to-transparent sm:block" />

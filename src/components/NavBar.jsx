@@ -41,7 +41,7 @@ export default function NavBar() {
       <Link to="/home" onClick={handleLogoTap} className="font-dancing text-2xl text-rose-400">
         us 🖤
       </Link>
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6">
         <Link to="/home" className={linkClass('/home')}>
           home
         </Link>
@@ -50,6 +50,12 @@ export default function NavBar() {
         </Link>
         <Link to="/wall" className={linkClass('/wall')}>
           the wall
+        </Link>
+        <Link to="/coupons" className={linkClass('/coupons')}>
+          coupons
+        </Link>
+        <Link to="/poems" className={linkClass('/poems')}>
+          poems
         </Link>
         <button
           onClick={logout}

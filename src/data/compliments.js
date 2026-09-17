@@ -10,7 +10,7 @@ export const COMPLIMENTS = [
   "your cute faces have way too much power over my entire mood.",
   "i genuinely think we argue so well because we love just as hard.",
   "you're the favorite notification on my phone. every single time.",
-  "i like you in every version — the childish one, the dramatic one, all of them.",
+  "i like you in every version, the childish one, the dramatic one, all of them.",
   "you make ordinary days feel like they're worth writing about.",
   "black is our color and honestly i think that says everything.",
   "i don't know how you do it, but you make petty look adorable.",

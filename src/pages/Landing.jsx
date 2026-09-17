@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import FloatingHearts from '../components/FloatingHearts';
+import HiddenHeart from '../components/HiddenHeart';
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ export default function Landing() {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black px-6 text-center">
       <FloatingHearts count={22} />
+      <HiddenHeart id="landing" className="absolute bottom-4 right-4" />
 
       <motion.p
         initial={{ opacity: 0, y: -10 }}

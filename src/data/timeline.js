@@ -2,7 +2,7 @@ export const TIMELINE = [
   {
     emoji: '🌱',
     title: 'how it started',
-    text: "somewhere between all the talking and the joking around, it stopped being casual and started being us. neither of us really said when — it just was.",
+    text: "somewhere between all the talking and the joking around, it stopped being casual and started being us. neither of us really said when, it just was.",
   },
   {
     emoji: '🎭',
@@ -17,7 +17,7 @@ export const TIMELINE = [
   {
     emoji: '🥹',
     title: 'the voice notes',
-    text: "that childish voice, those faces, being a whole little boy over voice call — i still don't understand how something so silly makes me this soft.",
+    text: "that childish voice, those faces, being a whole little boy over voice call, i still don't understand how something so silly makes me this soft.",
   },
   {
     emoji: '🖤',
@@ -27,6 +27,6 @@ export const TIMELINE = [
   {
     emoji: '♾️',
     title: '14 months, today',
-    text: "still here. still choosing you on purpose, not out of habit. onto month 15 — and every one after that.",
+    text: "still here. still choosing you on purpose, not out of habit. onto month 15, and every one after that.",
   },
 ];

@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import FloatingHearts from '../components/FloatingHearts';
+import HiddenHeart from '../components/HiddenHeart';
 import Timeline from '../components/Timeline';
 import ReasonGenerator from '../components/ReasonGenerator';
 import LoveMeter from '../components/LoveMeter';
+import SpinReel from '../components/SpinReel';
 import { useAuth } from '../context/AuthContext';
 import { getElapsed, HER_NAME } from '../utils/relationship';
 
@@ -18,12 +20,12 @@ const REASONS = [
   {
     emoji: '🎭',
     title: 'our rp world',
-    text: "all those late-night rps we ran the last year — different characters, same us underneath. that's genuinely one of my favorite versions of you.",
+    text: "all those late-night rps we ran the last year, different characters, same us underneath. that's genuinely one of my favorite versions of you.",
   },
   {
     emoji: '🥺',
     title: 'that childish voice + those faces',
-    text: "the voice you do, the faces you pull acting like a whole little boy — i don't know why it melts me every time but it does, without fail.",
+    text: "the voice you do, the faces you pull acting like a whole little boy, i don't know why it melts me every time but it does, without fail.",
   },
   {
     emoji: '⚡',
@@ -32,7 +34,7 @@ const REASONS = [
   },
   {
     emoji: '🖤',
-    title: 'black — ours before it was cool',
+    title: 'black, ours before it was cool',
     text: "your favorite color is black. mine too. i'm not saying it's fate, i'm just saying it's a little bit fate.",
   },
 ];
@@ -52,6 +54,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-black text-white">
       <FloatingHearts count={14} />
+      <HiddenHeart id="home" className="absolute right-3 top-20" />
       <NavBar />
 
       <section className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 pb-20 pt-16 text-center">
@@ -139,6 +142,8 @@ export default function Home() {
 
       <LoveMeter />
 
+      <SpinReel />
+
       <section className="relative z-10 mx-auto max-w-2xl px-6 pb-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -146,15 +151,15 @@ export default function Home() {
           viewport={{ once: true }}
           className="rounded-3xl border border-rose-500/20 bg-gradient-to-b from-rose-950/30 to-black p-10"
         >
-          <p className="font-caveat text-3xl text-rose-300">a little letter, ashu —</p>
+          <p className="font-caveat text-3xl text-rose-300">a little letter, ashu</p>
           <p className="mt-4 font-quicksand text-sm leading-relaxed text-neutral-300 sm:text-base">
             14 months in and you're still the person i'd pick, over and over, every single time.
             through every dumb argument over nothing, every time we've come back softer and closer
-            than before, every voice note, every rp, every one of your ridiculous faces — it's all
+            than before, every voice note, every rp, every one of your ridiculous faces, it's all
             just... us. and i genuinely love that.
             <br />
             <br />
-            this whole site exists because i wanted to give you a place that's just ours. so go on —
+            this whole site exists because i wanted to give you a place that's just ours. so go on,
             record me something. tell me anything. i'm always listening.
           </p>
           <p className="mt-6 font-dancing text-2xl text-white">yours, always 🖤</p>
